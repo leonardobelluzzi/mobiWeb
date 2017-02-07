@@ -25,6 +25,11 @@ public class TipoMercadoria extends VoObject<ObjectId>{
 		this.setNome(nome);
 	}
 	
+	@Override
+	public String toString() {
+		String tostring = this.getNome();
+		return tostring;
+	}
 
 	@Override
 	public ObjectId getCod() {

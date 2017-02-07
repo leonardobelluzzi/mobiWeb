@@ -1,4 +1,4 @@
-package br.mobi.mercadoria;
+package br.mobi.banco;
 
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
@@ -19,7 +19,7 @@ public class MorphiaService {
 		
 		//create a new morphia instance
 		this.morphia = new Morphia(); 
-		String databaseName = "mobiveb";
+		String databaseName = "mobisiteweb";
 		this.datastore = morphia.createDatastore(mongoClient, databaseName);
 	}
  
