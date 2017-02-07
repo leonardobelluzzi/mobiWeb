@@ -1,19 +1,24 @@
-package com.mobi.login;
+package com.mobi.beans;
 
 import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+
+import br.mobi.login.Login;
+import br.mobi.login.impl.LoginImpl;
  
 @ManagedBean
-public class Login implements Serializable{
+public class LoginBean implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	private String msgLoginErro = "Login ivalido !";
+	private String esquecerSenha = "Essa função não foi implementada!";
 	
 	private String usuario;
 	private String senha;
@@ -39,30 +44,24 @@ public class Login implements Serializable{
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning!", "Watch out for PrimeFaces."));
 	}*/
 	
-	public void login() {
-		FacesContext.getCurrentInstance().addMessage("newPassword1", 
-                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error Message", senha));
+	public String login() {
+		Login usuario = new Login(this.usuario, this.senha);
+		LoginImpl loginImpl = new LoginImpl();
+		
+		usuario = loginImpl.fazerLogin(usuario);
+		
+		if (usuario == null){
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", msgLoginErro));
+			return null;
+		}else{
+			FacesContext.getCurrentInstance().getAttributes().put("login", usuario);
+			return "teste.xhtml";
+		}
     }
 	
 	public String esquecerSenha(){
-	
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro" , "Função não implementada"));
 		return null;
 	}
-	
-	public void info() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
-    }
-     
-    public void warn() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning!", "Watch out for PrimeFaces."));
-    }
-     
-    public void error() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Contact admin."));
-    }
-     
-    public void fatal() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Fatal!", "System Error"));
-    }
 	
 }

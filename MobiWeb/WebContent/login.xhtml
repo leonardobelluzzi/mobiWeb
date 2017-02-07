@@ -14,17 +14,24 @@
 
 	<h:form styleClass="ui-datatable">
 
+		<p:tooltip />
+		<p:messages id="messages" showDetail="true" autoUpdate="true"
+			closable="true" escape="true" />
+
 		<h:outputText value="Usuário:" />
-		<p:inputText value="#{login.usuario}" />
+		<p:inputText id="usuario" value="#{loginBean.usuario}" required="true"
+			requiredMessage="Usuário Obrigatória!" />
 		<br />
 
 		<h:outputText value="Senha:" />
-		<p:inputText value="#{login.senha}" />
+		<p:inputText id="senha" value="#{loginBean.senha}" required="true"
+			requiredMessage="Senha Obrigatória!" />
 		<br />
 
-		<p:commandButton action="#{login.login()}" value="Login" />
-
-
+		<p:commandButton action="#{loginBean.login()}" value="Login" />
+		<br />
+		<p:commandLink action="#{loginBean.esquecerSenha()}"
+			value="Esqueceu a Senha?" />
 
 	</h:form>
 </body>

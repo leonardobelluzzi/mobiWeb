@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h:form id="form_mercadoria">
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"
+			escape="true" />
+		<p:fieldset legend="Tipo Mercadoria" toggleable="true"
+			toggleSpeed="500">
+			<h3>Tipo Mercadoria</h3>
+			<p:accordionPanel multiple="true">
+				<p:tab title="Adcionar">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="Nome:" />
+						<p:inputText id="txt_NomeTipoMercadoria"
+							value="#{tipoMercadoriaBean.nome_TipoMercadoria}" required="true"
+							requiredMessage="Nome Tipo Mercadoria Obrigatorio" />
+						<br />
+
+						<p:commandButton
+							action="#{tipoMercadoriaBean.inserirTipoMercadoria()}"
+							value="Adcionar" />
+
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Existentes">
+					<h:panelGrid columns="2" cellpadding="10">
+
+
+					</h:panelGrid>
+				</p:tab>
+			</p:accordionPanel>
+
+
+		</p:fieldset>
+	</h:form>
+	<h:form id="Mercadoria">
+		<p:separator />
+		<!-- Mercadoria -->
+		<p:fieldset legend="Mercadoria" toggleable="true" toggleSpeed="500">
+			<h3>Tipo Mercadoria</h3>
+			<p:accordionPanel multiple="true">
+				<p:tab title="Adcionar">
+					<h:panelGrid>
+
+						<h:outputLabel value="Nome:" />
+						<p:inputText id="txt_NomeMercadoria" value="" required="true"
+							requiredMessage="Nome Mercadoria Obrigatorio" maxlength="100" />
+						<p:separator />
+
+						<h:outputLabel value="Quantidade" />
+						<p:spinner id="minMax" value="" min="0" max="1000" />
+						<p:separator />
+
+						<h:outputLabel value="Preço:" />
+						<p:inputNumber id="input1" value="" />
+						<p:separator />
+
+						<h:outputLabel value="Tipo Negocio:" />
+						<p:selectOneMenu id="som_tipoNegocio" value="" style="width:125px">
+							<f:selectItem itemLabel="Select One" itemValue="" />
+							<f:selectItem itemLabel="Venda" itemValue="0" />
+							<f:selectItem itemLabel="Compra" itemValue="1" />
+						</p:selectOneMenu>
+						<p:separator />
+
+						<h:outputLabel value="Tipo Mercadoria:" />
+						<p:selectCheckboxMenu id="scm_tipoMercadoria"
+							value="#{tipoMercadoriaBean.lista}" label="Tipo Mercadoria"
+							filter="true" filterMatchMode="startsWith"
+							panelStyle="width:250px">
+							<f:selectItems value="#{tipoMercadoriaBean.lista}" />
+						</p:selectCheckboxMenu>
+						<p:separator />
+
+						<h:outputLabel value="Imagem:" />
+						<p:fileUpload value="#{fileUploadView.file}" mode="simple"
+							skinSimple="true" />
+
+						<h:commandButton action="#{loginBean.login()}" value="Inserir" />
+					</h:panelGrid>
+				</p:tab>
+				<p:tab title="Existentes">
+					<h:panelGrid columns="2" cellpadding="10">
+
+
+					</h:panelGrid>
+				</p:tab>
+			</p:accordionPanel>
+		</p:fieldset>
+	</h:form>
+</body>
+</html>
