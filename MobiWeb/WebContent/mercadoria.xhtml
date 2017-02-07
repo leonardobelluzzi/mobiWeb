@@ -8,29 +8,41 @@
 <h:head></h:head>
 <body>
 	<h:form id="form_mercadoria">
-		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"
-			escape="true" />
-		<p:fieldset legend="Tipo Mercadoria" toggleable="true"
+		<p:messages id="messages" showDetail="true" autoUpdate="true"
+			closable="true" escape="true" />
+		<p:fieldset legend="Tipo Mercadoria" toggleable="false"
 			toggleSpeed="500">
 			<h3>Tipo Mercadoria</h3>
 			<p:accordionPanel multiple="true">
+
+				<p:tab title="Existentes">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:dataTable var="tipoMercadoria"
+							value="#{tipoMercadoriaBean.lista}">
+							<p:column headerText="Nome">
+								<h:outputText value="#{tipoMercadoria.nome}" />
+							</p:column>
+
+							<p:column headerText="Id">
+								<h:outputText value="#{tipoMercadoria.cod}" />
+							</p:column>
+
+						</p:dataTable>
+
+					</h:panelGrid>
+				</p:tab>
+
 				<p:tab title="Adcionar">
 					<h:panelGrid columns="2" cellpadding="10">
 						<h:outputText value="Nome:" />
 						<p:inputText id="txt_NomeTipoMercadoria"
-							value="#{tipoMercadoriaBean.nome_TipoMercadoria}" required="true"
+							value="#{tipoMercadoriaBean.nomeTipoMercadoria}" required="true"
 							requiredMessage="Nome Tipo Mercadoria Obrigatorio" />
 						<br />
 
 						<p:commandButton
 							action="#{tipoMercadoriaBean.inserirTipoMercadoria()}"
 							value="Adcionar" />
-
-					</h:panelGrid>
-				</p:tab>
-				<p:tab title="Existentes">
-					<h:panelGrid columns="2" cellpadding="10">
-
 
 					</h:panelGrid>
 				</p:tab>
@@ -42,7 +54,7 @@
 	<h:form id="Mercadoria">
 		<p:separator />
 		<!-- Mercadoria -->
-		<p:fieldset legend="Mercadoria" toggleable="true" toggleSpeed="500">
+		<p:fieldset legend="Mercadoria" toggleable="false" toggleSpeed="500">
 			<h3>Tipo Mercadoria</h3>
 			<p:accordionPanel multiple="true">
 				<p:tab title="Adcionar">
@@ -70,8 +82,8 @@
 						<p:separator />
 
 						<h:outputLabel value="Tipo Mercadoria:" />
-						<p:selectCheckboxMenu id="scm_tipoMercadoria"
-							value="#{tipoMercadoriaBean.lista}" label="Tipo Mercadoria"
+						<p:selectCheckboxMenu id="menu"
+							value="#{mercadoriaBean.tipoMercadoria}" label="Cities"
 							filter="true" filterMatchMode="startsWith"
 							panelStyle="width:250px">
 							<f:selectItems value="#{tipoMercadoriaBean.lista}" />
