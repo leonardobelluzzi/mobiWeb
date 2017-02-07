@@ -1,5 +1,7 @@
 package br.mobi.login;
 
+import org.bson.Document;
+
 import br.mobi.util.VoObject;
 
 /*
@@ -11,16 +13,16 @@ public class Login extends VoObject<Integer>{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+
+
 	private String usuario;
 	private String senha;
 
 	public Login(){}
 
 	public Login(String usu, String sen){
-		this.usuario = usu;
-		this.senha = sen;
+		this.setUsuario(usu);
+		this.setSenha(sen);
 	}
 
 	@Override
@@ -53,7 +55,13 @@ public class Login extends VoObject<Integer>{
 
 	@Override
 	public void setCod(Integer cod) {
-		this.codigo = codigo;	
+		this.codigo = cod;	
+	}
+
+	@Override
+	public Document toJason() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
