@@ -8,8 +8,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import br.mobi.mercadoria.TipoMercadoria;
-import br.mobi.mercadoria.TipoMercadoriaImplementacao;
+import br.mobi.mercadoria.tipo.TipoMercadoria;
+import br.mobi.mercadoria.tipo.TipoMercadoriaImplementacao;
 
 @ManagedBean
 public class TipoMercadoriaBean implements Serializable{

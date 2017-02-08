@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 
-import br.mobi.mercadoria.TipoMercadoria;
+import br.mobi.mercadoria.tipo.TipoMercadoria;
 
 @ManagedBean
 public class MercadoriaBean implements Serializable{
