@@ -7,31 +7,33 @@
 
 <h:head>
 	<title>MobiWeb</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
 
 	<link type="text/css" rel="stylesheet" href="mobicss.css" />
 </h:head>
 <body>
 
-	<h:form styleClass="ui-datatable">
+	<h:form styleClass="ui-datatable" class="formulario">
+	
+		<center><img src="http://i.imgur.com/CLIvvur.png"></img></center>
 
 		<p:tooltip />
 		<p:messages id="messages" showDetail="true" autoUpdate="true"
 			closable="true" escape="true" />
 
-		<h:outputText value="Usuário:" />
+		<h:outputText value="Usuário" /><br/>
 		<p:inputText id="usuario" value="#{loginBean.usuario}" required="true"
-			requiredMessage="Usuário Obrigatória!" />
-		<br />
+			requiredMessage="Usuário Obrigatória!"  placeholder="Digite seu usuário"/>
+		<br /><br/>
 
-		<h:outputText value="Senha:" />
+		<h:outputText value="Senha" /><br/>
 		<p:inputText id="senha" value="#{loginBean.senha}" required="true"
-			requiredMessage="Senha Obrigatória!" />
-		<br />
-
-		<p:commandButton action="#{loginBean.login()}" value="Login" />
-		<br />
-		<p:commandLink action="#{loginBean.esquecerSenha()}"
-			value="Esqueceu a Senha?" />
+			requiredMessage="Senha Obrigatória!" placeholder="Digite sua senha" />
+		<br /><br/>
+		<h:commandButton action="#{loginBean.login()}" value="Login" class="buttons"/>
+				<br /><br/>
+		<h:commandLink action="#{loginBean.esquecerSenha()}"
+			value="Esqueceu a Senha?" class="forgot"/>
 
 	</h:form>
 </body>

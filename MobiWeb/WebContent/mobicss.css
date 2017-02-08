@@ -1,5 +1,93 @@
 @CHARSET "ISO-8859-1";
 
+body{
+	font-size:13px;
+	font-family:"Open Sans";
+  	color: #fff;
+  	font-weight:normal;
+  	background-color: #2F2F2F;
+}
+
+.formulario{
+	border:5px solid #DB812D;
+	float:center;
+	align:center;
+	/*position: relative;*/
+  margin: 0 auto;
+  padding: 30px;
+  width: 330px;
+  background: white;
+  border-radius: 3px;
+  color: #2F2F2F;
+  position:absolute;
+top:50%;
+box-sizing:border-box;
+	left:50%;
+	margin-top:-165px;
+	margin-left:-165px;
+	
+}
+
+.formulario img{text-align:center;padding-bottom:30px;}
+
 .ui-datatable {
 	font-size: 12px !important;
+	font-weight:500;
 }
+
+.ui-datable #usuario{
+	font-family:"Open Sans";
+	
+}
+
+input[type=text]{ 
+	
+    border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    box-shadow: 1px 1px 2px #fff;    
+    -moz-box-shadow: 1px 1px 2px #fff;
+    -webkit-box-shadow: 1px 1px 2px #fff;
+    background: #FFF; 
+    width:97%;
+    height:25px;
+    float:center;
+}
+
+.forgot{
+	font-family:"Open Sans";
+	font-size:11px;
+	color:#2F2F2F;
+}
+
+.buttons{
+	background:#DB812D;
+	color:#FFF;
+	font-family:"Open Sans";
+	width:100%;
+	border:none;
+	padding:5px;
+	border-radius:5px;
+	
+}
+
+
+::-webkit-input-placeholder {
+   font-family:"Open Sans";
+   font-size:12px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   font-family:"Open Sans";
+   font-size:12px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-family:"Open Sans";
+  font-size:12px;
+}
+
+:-ms-input-placeholder {  
+   font-family:"Open Sans"; 
+   font-size:12px;
+   
