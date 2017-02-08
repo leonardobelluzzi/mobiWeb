@@ -61,16 +61,16 @@
 					<h:panelGrid>
 
 						<h:outputLabel value="Nome:" />
-						<p:inputText id="txt_NomeMercadoria" value="" required="true"
+						<p:inputText id="txt_NomeMercadoria" value="#{mercadoriaBean.nome}" required="true"
 							requiredMessage="Nome Mercadoria Obrigatorio" maxlength="100" />
 						<p:separator />
 
 						<h:outputLabel value="Quantidade" />
-						<p:spinner id="minMax" value="" min="0" max="1000" />
+						<p:spinner id="minMax" value="#{mercadoriaBean.quantidade}" min="0" max="1000" />
 						<p:separator />
 
 						<h:outputLabel value="Preço:" />
-						<p:inputNumber id="input1" value="" />
+						<p:inputNumber id="input1" value="#{mercadoriaBean.preco}" />
 						<p:separator />
 
 						<h:outputLabel value="Tipo Negocio:" />
@@ -89,12 +89,9 @@
 							<f:selectItems value="#{tipoMercadoriaBean.lista}" />
 						</p:selectCheckboxMenu>
 						<p:separator />
-
-						<h:outputLabel value="Imagem:" />
-						<p:fileUpload value="#{fileUploadView.file}" mode="simple"
-							skinSimple="true" />
-
-						<h:commandButton action="#{loginBean.login()}" value="Inserir" />
+						
+						<h:commandButton action="#{mercadoriaBean.inserir()}" value="Inserir" />
+						
 					</h:panelGrid>
 				</p:tab>
 				<p:tab title="Existentes">
