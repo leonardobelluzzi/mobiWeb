@@ -1,4 +1,4 @@
-package br.mobi.mercadoria;
+package br.mobi.mercadoria.tipo;
 
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.dao.DAO;

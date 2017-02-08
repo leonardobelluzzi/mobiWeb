@@ -1,4 +1,4 @@
-package br.mobi.mercadoria;
+package br.mobi.mercadoria.tipo;
 
 import java.util.List;
 
