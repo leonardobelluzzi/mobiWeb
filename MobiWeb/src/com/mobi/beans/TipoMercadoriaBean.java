@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
+import br.mobi.mercadoria.MercadoriaImplementacao;
 import br.mobi.mercadoria.tipo.TipoMercadoria;
 import br.mobi.mercadoria.tipo.TipoMercadoriaImplementacao;
+import br.mobi.util.TipoNegocio;
 
 @ManagedBean
 public class TipoMercadoriaBean implements Serializable{
@@ -26,6 +29,12 @@ public class TipoMercadoriaBean implements Serializable{
 	private TipoMercadoria tipoMercadoria = new TipoMercadoria();
 	private String nomeTipoMercadoria;
 	
+	@PostConstruct
+	public void init() {
+		TipoMercadoriaImplementacao function = new TipoMercadoriaImplementacao(this.tipoMercadoria);
+		List<TipoMercadoria> lista = function.listarTodos();
+		this.setLista(lista);
+	}
 	
 	public String inserirTipoMercadoria(){
 		TipoMercadoria tipomercadoria = new TipoMercadoria();
@@ -49,6 +58,8 @@ public class TipoMercadoriaBean implements Serializable{
 		List<TipoMercadoria> listaTodos = function.listarTodos();
 		this.setLista(listaTodos);
 		
+		this.setNomeTipoMercadoria("");
+		
 		return null;
 	}
 
@@ -64,10 +75,7 @@ public class TipoMercadoriaBean implements Serializable{
 
 
 	public List<TipoMercadoria> getLista() {
-		TipoMercadoriaImplementacao function = new TipoMercadoriaImplementacao(this.tipoMercadoria);
-		List<TipoMercadoria> listaTodos = function.listarTodos();
-		
-		return listaTodos;
+		return lista;
 	}
 
 

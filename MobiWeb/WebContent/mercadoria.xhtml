@@ -5,103 +5,165 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<h:head></h:head>
+<h:head>
+	<link
+		href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800'
+		rel='stylesheet' type='text/css' />
+
+	<link type="text/css" rel="stylesheet" href="style.css" />
+</h:head>
 <body>
-	<h:form id="form_mercadoria">
-		<p:messages id="messages" showDetail="true" autoUpdate="true"
-			closable="true" escape="true" />
-		<p:fieldset legend="Tipo Mercadoria" toggleable="false"
-			toggleSpeed="500">
-			<h3>Tipo Mercadoria</h3>
-			<p:accordionPanel multiple="true">
 
-				<p:tab title="Existentes">
-					<h:panelGrid columns="2" cellpadding="10">
-						<p:dataTable var="tipoMercadoria"
-							value="#{tipoMercadoriaBean.lista}">
-							<p:column headerText="Nome">
-								<h:outputText value="#{tipoMercadoria.nome}" />
-							</p:column>
+	<div id='menu'>
+		<div class='centraliza'>
+			<div class='texto' style='float: left; width: 65%'>
+				<a href='/'> Home </a> <a href='/'> Sobre </a>
 
-							<p:column headerText="Id">
-								<h:outputText value="#{tipoMercadoria.cod}" />
-							</p:column>
+			</div>
+		</div>
+	</div>
+	<center>
 
-						</p:dataTable>
+		<div class="alinhamento">
+			<div style="float: left;" id="submenu">
+				<h:form>
+					<p:growl id="messages" showDetail="false" />
 
-					</h:panelGrid>
-				</p:tab>
+					<p:menu>
+						<p:submenu label="Mercadoria">
+							<p:menuitem value="Tipo Mercadoria"
+								actionListener="/mercadoria.xhtml" update="messages"
+								icon="ui-icon-disk" />
+							<p:menuitem value="Mercadoria" actionListener="/mercadoria.xhtml"
+								update="messages" icon="ui-icon-disk" />
+						</p:submenu>
+					</p:menu>
 
-				<p:tab title="Adcionar">
-					<h:panelGrid columns="2" cellpadding="10">
-						<h:outputText value="Nome:" />
-						<p:inputText id="txt_NomeTipoMercadoria"
-							value="#{tipoMercadoriaBean.nomeTipoMercadoria}" required="true"
-							requiredMessage="Nome Tipo Mercadoria Obrigatorio" />
-						<br />
+				</h:form>
+			</div>
 
-						<p:commandButton
-							action="#{tipoMercadoriaBean.inserirTipoMercadoria()}"
-							value="Adcionar" />
+			<div class="forms">
 
-					</h:panelGrid>
-				</p:tab>
-			</p:accordionPanel>
+				<h:form id="form_mercadoria">
+					<p:messages id="messages" showDetail="true" autoUpdate="true"
+						closable="true" escape="true" />
+					<p:fieldset legend="Tipo de Mercadoria" toggleable="false"
+						toggleSpeed="500">
 
+						<p:accordionPanel multiple="true">
 
-		</p:fieldset>
-	</h:form>
-	<h:form id="Mercadoria">
-		<p:separator />
-		<!-- Mercadoria -->
-		<p:fieldset legend="Mercadoria" toggleable="false" toggleSpeed="500">
-			<h3>Tipo Mercadoria</h3>
-			<p:accordionPanel multiple="true">
-				<p:tab title="Adcionar">
-					<h:panelGrid>
+							<p:tab title="Existentes">
+								<h:panelGrid columns="2" cellpadding="10">
+									<h:panelGrid columns="2" cellpadding="10">
+										<p:dataTable var="tipoMercadoria"
+											value="#{tipoMercadoriaBean.lista}">
+											<p:column headerText="Nome">
+												<h:outputText value="#{tipoMercadoria.nome}" />
+											</p:column>
 
-						<h:outputLabel value="Nome:" />
-						<p:inputText id="txt_NomeMercadoria" value="#{mercadoriaBean.nome}" required="true"
-							requiredMessage="Nome Mercadoria Obrigatorio" maxlength="100" />
-						<p:separator />
+											<p:column headerText="Id">
+												<h:outputText value="#{tipoMercadoria.cod}" />
+											</p:column>
 
-						<h:outputLabel value="Quantidade" />
-						<p:spinner id="minMax" value="#{mercadoriaBean.quantidade}" min="0" max="1000" />
-						<p:separator />
+										</p:dataTable>
 
-						<h:outputLabel value="Preço:" />
-						<p:inputNumber id="input1" value="#{mercadoriaBean.preco}" />
-						<p:separator />
+									</h:panelGrid>
+								</h:panelGrid>
+							</p:tab>
 
-						<h:outputLabel value="Tipo Negocio:" />
-						<p:selectOneMenu id="som_tipoNegocio" value="" style="width:125px">
-							<f:selectItem itemLabel="Select One" itemValue="" />
-							<f:selectItem itemLabel="Venda" itemValue="0" />
-							<f:selectItem itemLabel="Compra" itemValue="1" />
-						</p:selectOneMenu>
-						<p:separator />
+							<p:tab title="Adicionar">
+								<h:panelGrid columns="2" cellpadding="10">
+									<h:outputText value="Nome" />
+									<p:inputText id="txt_NomeTipoMercadoria"
+										value="#{tipoMercadoriaBean.nomeTipoMercadoria}"
+										required="true"
+										requiredMessage="Nome Tipo Mercadoria Obrigatório" />
+									<br />
 
-						<h:outputLabel value="Tipo Mercadoria:" />
-						<p:selectCheckboxMenu id="menu"
-							value="#{mercadoriaBean.tipoMercadoria}" label="Cities"
-							filter="true" filterMatchMode="startsWith"
-							panelStyle="width:250px">
-							<f:selectItems value="#{tipoMercadoriaBean.lista}" />
-						</p:selectCheckboxMenu>
-						<p:separator />
-						
-						<h:commandButton action="#{mercadoriaBean.inserir()}" value="Inserir" />
-						
-					</h:panelGrid>
-				</p:tab>
-				<p:tab title="Existentes">
-					<h:panelGrid columns="2" cellpadding="10">
+									<h:commandButton
+										action="#{tipoMercadoriaBean.inserirTipoMercadoria()}"
+										value="Adicionar" class="button" />
 
+								</h:panelGrid>
+							</p:tab>
+						</p:accordionPanel>
 
-					</h:panelGrid>
-				</p:tab>
-			</p:accordionPanel>
-		</p:fieldset>
-	</h:form>
+					</p:fieldset>
+				</h:form>
+				<h:form id="Mercadoria">
+					<p:separator />
+					<!-- Mercadoria -->
+					<p:fieldset legend="Mercadoria" toggleable="false"
+						toggleSpeed="500">
+						<p:accordionPanel multiple="true">
+							<p:tab title="Existentes">
+								<h:panelGrid columns="2" cellpadding="10">
+									<p:dataTable var="mercadoria" value="#{mercadoriaBean.lista}">
+										<p:column headerText="Nome">
+											<h:outputText value="#{mercadoria.nome}" />
+										</p:column>
+
+										<p:column headerText="Preco">
+											<h:outputText value="#{mercadoria.preco}" />
+										</p:column>
+
+										<p:column headerText="Quantidade">
+											<h:outputText value="#{mercadoria.quantidade}" />
+										</p:column>
+									</p:dataTable>
+
+								</h:panelGrid>
+							</p:tab>
+							<p:tab title="Adicionar">
+								<h:panelGrid>
+
+									<h:outputLabel value="Nome:" />
+									<p:inputText id="txt_NomeMercadoria"
+										value="#{mercadoriaBean.nome}" required="true"
+										requiredMessage="Nome Mercadoria Obrigatório" maxlength="100" />
+									<p:separator />
+
+									<h:outputLabel value="Quantidade" />
+									<p:spinner id="minMax" value="#{mercadoriaBean.quantidade}"
+										min="0" max="1000" />
+									<p:separator />
+
+									<h:outputLabel value="Preço:" />
+									<p:inputNumber id="input1" value="#{mercadoriaBean.preco}" />
+									<p:separator />
+
+									<h:outputLabel value="Tipo Negocio:" />
+									<p:selectOneMenu id="som_tipoNegocio"
+										value="#{mercadoriaBean.tipoNegocio}" style="width:125px">
+										<f:selectItems value="#{mercadoriaBean.arrayTipoNegocio}"></f:selectItems>
+									</p:selectOneMenu>
+									<p:separator />
+
+									<h:outputLabel value="Tipo Mercadoria:" />
+
+									<p:selectManyCheckbox id="Escolha"
+										value="#{mercadoriaBean.tipoMercadoria}">
+										<f:selectItems value="#{tipoMercadoriaBean.lista}" />
+									</p:selectManyCheckbox>
+									<!--<p:selectCheckboxMenu id="menu"
+										value="#{mercadoriaBean.tipoMercadoria}" label="Escolha"
+										filter="true" filterMatchMode="startsWith"
+										panelStyle="width:250px">
+										<f:selectItems value="#{tipoMercadoriaBean.lista}" />
+									</p:selectCheckboxMenu>  -->
+									<p:separator />
+
+									<h:commandButton action="#{mercadoriaBean.inserir()}"
+										value="Inserir" class="button" />
+
+								</h:panelGrid>
+							</p:tab>
+						</p:accordionPanel>
+					</p:fieldset>
+				</h:form>
+			</div>
+		</div>
+	</center>
+
 </body>
 </html>

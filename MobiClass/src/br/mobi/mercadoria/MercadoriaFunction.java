@@ -1,5 +1,8 @@
 package br.mobi.mercadoria;
 
-public interface MercadoriaFunction {
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.dao.DAO;
+
+public interface MercadoriaFunction extends DAO<Mercadoria, ObjectId>{
 
 }

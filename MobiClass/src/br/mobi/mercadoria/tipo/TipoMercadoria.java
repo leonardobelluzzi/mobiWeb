@@ -51,11 +51,4 @@ public class TipoMercadoria extends VoObject<ObjectId>{
 		this.nome = nome;
 	}
 
-	
-	@Override
-	public Document toJason() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

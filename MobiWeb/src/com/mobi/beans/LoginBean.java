@@ -55,7 +55,7 @@ public class LoginBean implements Serializable{
 			return null;
 		}else{
 			FacesContext.getCurrentInstance().getAttributes().put("login", usuario);
-			return "teste.xhtml";
+			return "mercadoria.xhtml";
 		}
     }
 	

@@ -58,11 +58,5 @@ public class Login extends VoObject<Integer>{
 		this.codigo = cod;	
 	}
 
-	@Override
-	public Document toJason() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }

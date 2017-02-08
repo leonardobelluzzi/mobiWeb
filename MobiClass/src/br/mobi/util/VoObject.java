@@ -21,7 +21,4 @@ public abstract class VoObject <T> implements Serializable{
 	public abstract T getCod();
 	public abstract void setCod(T cod);
 
-
-	public abstract Document toJason();
-
 }
